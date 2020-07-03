@@ -378,3 +378,13 @@ window.addEventListener('orientationchange', function(event) {
 	motion_initial.y = 0;
 });
 
+window.addEventListener('touchend', function() {
+enableMotion();
+});
+
+function enableMotion() {
+if (window.DeviceOrientationEvent && DeviceOrientationEvent.requestPermission) {
+DeviceOrientationEvent.requestPermission();
+}
+}
+
