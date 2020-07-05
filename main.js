@@ -238,17 +238,17 @@ function getOffset(layer) {
 	var motion_offset_x = motion.x * layer.z_index * motion_multiplier;
 	var motion_offset_y = motion.y * layer.z_index * motion_multiplier;
 	
-	if (motion_offset_x > 30){
-		motion_offset_x = 30;
+	if (motion_offset_x > 75){
+		motion_offset_x = 75;
 	};
-	if (motion_offset_x < -30){
-		motion_offset_x = -30;
+	if (motion_offset_x < -75){
+		motion_offset_x = -75;
 	};
-	if (motion_offset_y > 30){
-		motion_offset_y = 30;
+	if (motion_offset_y > 75){
+		motion_offset_y = 75;
 	};
-	if (motion_offset_y < -30){
-		motion_offset_y = -30;
+	if (motion_offset_y < -75){
+		motion_offset_y = -75;
 	};
 
 	// Calculate the total offset for both X and Y
