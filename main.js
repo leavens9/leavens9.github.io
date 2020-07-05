@@ -18,6 +18,7 @@ var dog_shadow = new Image();
 var dog = new Image();
 var mask_shadow = new Image();
 var mask = new Image();
+var cloud_shadow = new Image();
 var cloud = new Image();
 var shadows = new Image();
 var quick = new Image();
@@ -37,7 +38,7 @@ var layer_list = [
 	{
 		'image': background,
 		'src': './images/layer_1_1.png',
-		'z_index': -2.25,
+		'z_index': -1.25,
 		'position': {x: 0, y: 0},
 		'blend': null,
 		'opacity': 1
@@ -45,7 +46,7 @@ var layer_list = [
 	{
 		'image': ground,
 		'src': './images/layer_2_1.png',
-		'z_index': -2,
+		'z_index': -1,
 		'position': {x: 0, y: 0},
 		'blend': null,
 		'opacity': 1
@@ -53,7 +54,7 @@ var layer_list = [
 	{
 		'image': dog_shadow,
 		'src': './images/layer_3_1.png',
-		'z_index': -1.25,
+		'z_index': -.75,
 		'position': {x: 0, y: 0},
 		'blend': 'multiply',
 		'opacity': 0.4
@@ -83,8 +84,16 @@ var layer_list = [
 		'opacity': 1
 	},
 	{
-		'image': cloud,
+		'image': cloud_shadow,
 		'src': './images/layer_7_1.png',
+		'z_index': 0.25,
+		'position': {x: 0, y: 0},
+		'blend': 'multiply',
+		'opacity': .4
+	},
+	{
+		'image': cloud,
+		'src': './images/layer_8_1.png',
 		'z_index': 0.5,
 		'position': {x: 0, y: 0},
 		'blend': null,
@@ -92,7 +101,7 @@ var layer_list = [
 	},
 	{
 		'image': shadows,
-		'src': './images/layer_8_1.png',
+		'src': './images/layer_9_1.png',
 		'z_index': .75,
 		'position': {x: 0, y: 0},
 		'blend': 'multiply',
@@ -100,7 +109,7 @@ var layer_list = [
 	},
 	{
 		'image': quick,
-		'src': './images/layer_9_1.png',
+		'src': './images/layer_10_1.png',
 		'z_index': 1,
 		'position': {x: 0, y: 0},
 		'blend': null,
@@ -108,7 +117,7 @@ var layer_list = [
 	},
 	{
 		'image': fox,
-		'src': './images/layer_10_1.png',
+		'src': './images/layer_11_1.png',
 		'z_index': 1.5,
 		'position': {x: 0, y: 0},
 		'blend': null,
@@ -116,7 +125,7 @@ var layer_list = [
 	},
 	{
 		'image': jump,
-		'src': './images/layer_11_1.png',
+		'src': './images/layer_12_1.png',
 		'z_index': 1.75,
 		'position': {x: 0, y: 0},
 		'blend': null,
@@ -124,7 +133,7 @@ var layer_list = [
 	},
 	{
 		'image': grass,
-		'src': './images/layer_12_1.png',
+		'src': './images/layer_13_1.png',
 		'z_index': 2.5,
 		'position': {x: 0, y: 0},
 		'blend': null,
