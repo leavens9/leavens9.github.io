@@ -101,7 +101,7 @@ var layer_list = [
 	{
 		'image': quick,
 		'src': './images/layer_9_1.png',
-		'z_index': 1,
+		'z_index': 1.25,
 		'position': {x: 0, y: 0},
 		'blend': null,
 		'opacity': 1
@@ -109,7 +109,7 @@ var layer_list = [
 	{
 		'image': fox,
 		'src': './images/layer_10_1.png',
-		'z_index': 1.5,
+		'z_index': 1.75,
 		'position': {x: 0, y: 0},
 		'blend': null,
 		'opacity': 1
@@ -117,7 +117,7 @@ var layer_list = [
 	{
 		'image': jump,
 		'src': './images/layer_11_1.png',
-		'z_index': 1.75,
+		'z_index': 2,
 		'position': {x: 0, y: 0},
 		'blend': null,
 		'opacity': 1
@@ -125,7 +125,7 @@ var layer_list = [
 	{
 		'image': grass,
 		'src': './images/layer_12_1.png',
-		'z_index': 2.5,
+		'z_index': 2.25,
 		'position': {x: 0, y: 0},
 		'blend': null,
 		'opacity': 1
@@ -159,7 +159,7 @@ function drawCanvas() {
 	// Erase everything currently on the canvas
 	context.clearRect(0, 0, canvas.width, canvas.height);
 
-	
+
 	// This is needed for the animation to snap back to center when you release mouse or touch
 	TWEEN.update();
 	
@@ -167,20 +167,6 @@ function drawCanvas() {
 	var rotate_x = (pointer.y * -0.15) + (motion.y * -1.2);
 	var rotate_y = (pointer.x * 0.15) + (motion.x * 1.2);
 	
-	/*if(rotate_x > 60){
-		var rotate_x = 60;
-	};
-	if(rotate_x < -60){
-		var rotate_x = -60;
-	};
-
-	if(rotate_y > 60){
-		var rotate_y = 60;
-	};
-	if(rotate_y < -60){
-		var rotate_y = -60;
-	};*/
-
 	var transform_string = "rotateX(" + rotate_x + "deg) rotateY(" + rotate_y + "deg)";
 	
 	// Actually rotate the canvas
@@ -219,38 +205,12 @@ function getOffset(layer) {
 	var touch_offset_x = pointer.x * layer.z_index * touch_multiplier;
 	var touch_offset_y = pointer.y * layer.z_index * touch_multiplier;
 	
-	if (touch_offset_x > 75){
-		touch_offset_x = 75;
-	};
-	if (touch_offset_x < -75){
-		touch_offset_x = -75;
-	};
-	if (touch_offset_y > 75){
-		touch_offset_y = 75;
-	};
-	if (touch_offset_y < -75){
-		touch_offset_y = -75;
-	};
-
 	// Calculate the amount you want the layers to move based on the gyroscope
 	// You can play with the motion_multiplier variable here. Depending on the size of your canvas you may want to turn it up or down.
-	var motion_multiplier = 1;
+	var motion_multiplier = 2.5;
 	var motion_offset_x = motion.x * layer.z_index * motion_multiplier;
 	var motion_offset_y = motion.y * layer.z_index * motion_multiplier;
 	
-	if (motion_offset_x > 89){
-		motion_offset_x = 89;
-	};
-	if (motion_offset_x < -89){
-		motion_offset_x = -89;
-	};
-	if (motion_offset_y > 89){
-		motion_offset_y = 89;
-	};
-	if (motion_offset_y < -89){
-		motion_offset_y = -89;
-	};
-
 	// Calculate the total offset for both X and Y
 	// Total offset is a combination of touch and motion
 	var offset = {
@@ -360,9 +320,9 @@ function endGesture() {
 	// You aren't touching or clicking anymore, so set this back to false
 	moving = false;
 	
-	/*//not needed because of Tween
-	pointer.x = 0;
-	pointer.y = 0;*/
+	//not needed because of Tween
+	//pointer.x = 0;
+	//pointer.y = 0;
 
 	// This removes any in progress tweens
 	TWEEN.removeAll();
@@ -396,7 +356,7 @@ window.addEventListener('deviceorientation', function(event) {
     if (window.orientation === 0) {
     	// The device is right-side up in portrait orientation
     	motion.x = event.gamma - motion_initial.y;
-    	motion.y = event.beta - motion_initial.x;  
+    	motion.y = event.beta - motion_initial.x;
     } else if (window.orientation === 90) {
     	// The device is in landscape laying on its left side
     	motion.x = event.beta - motion_initial.x;
@@ -418,13 +378,15 @@ window.addEventListener('orientationchange', function(event) {
 	motion_initial.y = 0;
 });
 
+
+//make mostion work on ios13
 window.addEventListener('touchend', function() {
-enableMotion();
+	enableMotion();	
 });
 
 function enableMotion() {
-if (window.DeviceOrientationEvent && DeviceOrientationEvent.requestPermission) {
-DeviceOrientationEvent.requestPermission();
-}
+	if (window.DeviceOrientationEvent && DeviceOrientationEvent.requestPermission) {
+		DeviceOrientationEvent.requestPermission();
+	}
 }
 
