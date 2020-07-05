@@ -117,7 +117,7 @@ var layer_list = [
 	{
 		'image': jump,
 		'src': './images/layer_11_1.png',
-		'z_index': 2,
+		'z_index': 2.25,
 		'position': {x: 0, y: 0},
 		'blend': null,
 		'opacity': 1
@@ -125,7 +125,7 @@ var layer_list = [
 	{
 		'image': grass,
 		'src': './images/layer_12_1.png',
-		'z_index': 2.25,
+		'z_index': 2.5,
 		'position': {x: 0, y: 0},
 		'blend': null,
 		'opacity': 1
