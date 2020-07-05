@@ -219,7 +219,7 @@ function getOffset(layer) {
 	var touch_offset_x = pointer.x * layer.z_index * touch_multiplier;
 	var touch_offset_y = pointer.y * layer.z_index * touch_multiplier;
 	
-	if (touch_offset_x > 75){
+/*	if (touch_offset_x > 75){
 		touch_offset_x = 75;
 	};
 	if (touch_offset_x < -75){
@@ -230,7 +230,7 @@ function getOffset(layer) {
 	};
 	if (touch_offset_y < -75){
 		touch_offset_y = -75;
-	};
+	};*/
 
 	// Calculate the amount you want the layers to move based on the gyroscope
 	// You can play with the motion_multiplier variable here. Depending on the size of your canvas you may want to turn it up or down.
