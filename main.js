@@ -167,7 +167,7 @@ function drawCanvas() {
 	var rotate_x = (pointer.y * -0.15) + (motion.y * -1.2);
 	var rotate_y = (pointer.x * 0.15) + (motion.x * 1.2);
 	
-	if(rotate_x > 60){
+	/*if(rotate_x > 60){
 		var rotate_x = 60;
 	};
 	if(rotate_x < -60){
@@ -179,7 +179,7 @@ function drawCanvas() {
 	};
 	if(rotate_y < -60){
 		var rotate_y = -60;
-	};
+	};*/
 
 	var transform_string = "rotateX(" + rotate_x + "deg) rotateY(" + rotate_y + "deg)";
 	
